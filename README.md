@@ -1,34 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) chat app create by me, [Pranta Dutta](https://github.com/prantaDutta)
+
+> We are using Prisma with this project to save our messages.
+
+## Features
+
+- User Authentication (Login, Signup and Logout)
+- Prisma Connection and Usage
+- Chat Room System where two or multiple users can chat with one other
+
+## Stacks
+
+- [NextJS](https://nextjs.org)
+- [ReactJS](https://reactjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [SWR](https://swr.vercel.app) (not necessary, but I use it so that I don't have to use useEffect)
+- [Prisma](https://prisma.io)
+- [Postgresql](https://www.postgresql.org/)
 
 ## Getting Started
 
-First, run the development server:
+- First Create an env file with the following command
 
 ```bash
-npm run dev
-# or
-yarn dev
+    touch .env
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Then open the file and Provide the following Data in the file
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+    DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@localhost:5432/DB_NAME?schema=public"
+    SECRET_COOKIE_PASSWORD="complex_password_at_least_32_characters_long"
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Edit these values with your database credentials and also set a cookie password for authentication that is 32 characters long
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Then migrate your database with the following command
 
-## Learn More
+```
+    yarn migrate
+```
 
-To learn more about Next.js, take a look at the following resources:
+Give it a name if it asks and press enter
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- That's it. Now open the development server with the following command
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+    yarn dev
+```
 
-## Deploy on Vercel
+## ScreenShots
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![ScreenShot](./public/ScreenShot.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> Thank You.
+> For any Query, email me at prantadutta1997@gmail.com
