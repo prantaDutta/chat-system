@@ -19,7 +19,13 @@ This is a [Next.js](https://nextjs.org/) chat app create by me, [Pranta Dutta](h
 
 ## Getting Started
 
-- First Create an env file with the following command
+- Copy and Paste the following command to install this repo
+
+```bash
+    npx create-next-app chat-system -e https://github.com/prantaDutta/chat-system
+```
+
+- After installtion, Create an env file with the following command
 
 ```bash
     touch .env
