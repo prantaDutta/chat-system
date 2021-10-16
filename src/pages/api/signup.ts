@@ -2,7 +2,7 @@ import { hashSync } from 'bcrypt'
 import prisma from '../../lib/prisma'
 import handler from '../../util/handler'
 
-export default handler.post(async (req, res) => {
+export default handler().post(async (req, res) => {
   const { name, email, password } = req.body
 
   if (!name || !email || !password) {
@@ -32,7 +32,7 @@ export default handler.post(async (req, res) => {
     })
   } catch (e) {
     return res.status(422).json({
-      error: "Can't create Data",
+      error: e.message,
     })
   }
 })

@@ -1,7 +1,7 @@
 import { Message } from '@prisma/client'
 import axios from 'axios'
 import { withIronSession } from 'next-iron-session'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import useSWR from 'swr'
 import InputTextField from '../components/InputTextField'
 import Layout from '../components/Layout'
@@ -29,10 +29,12 @@ const Home: React.FC<HomeProps> = ({ user }) => {
       })
       await mutate()
       setSubmitting(false)
-      dummy && dummy.current.scrollIntoView({ behavior: 'smooth' })
     }
   }
   const dummy: any = useRef()
+  useEffect(() => {
+    dummy && dummy.current.scrollIntoView({ behavior: 'smooth' })
+  }, [data])
   return (
     <Layout user={user}>
       <div className="my-5">
@@ -43,13 +45,15 @@ const Home: React.FC<HomeProps> = ({ user }) => {
               {error.message}
             </p>
           )}
-          {data &&
-            data.messages.length > 0 &&
+          {data && data.messages.length > 0 ? (
             data.messages.map((msg: Message) => {
               return (
                 <ShowMessage authorId={user.id} msg={msg} mutate={mutate} />
               )
-            })}
+            })
+          ) : (
+            <p className="font-semibold text-xl">No Messages Yet</p>
+          )}
           <div ref={dummy}></div>
         </div>
         <div className="my-5">

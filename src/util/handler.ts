@@ -15,17 +15,15 @@ export const IRON_CONFIG_OPTIONS = {
   },
 }
 
-const handler = nc<NextApiExtendedRequest, NextApiResponse>({
-  onError(error, _req, res) {
-    res
-      .status(501)
-      .json({ error: `Sorry Something Happened! ${error.message}` })
-  },
-  onNoMatch(req, res) {
-    res.status(405).json({ error: `Method ${req.method} Not Allowed` })
-  },
-})
-
-handler.use(ironSession(IRON_CONFIG_OPTIONS))
-
-export default handler
+export default function handler() {
+  return nc<NextApiExtendedRequest, NextApiResponse>({
+    onError(error, _req, res) {
+      res
+        .status(501)
+        .json({ error: `Sorry Something Happened! ${error.message}` })
+    },
+    onNoMatch(req, res) {
+      res.status(405).json({ error: `Method ${req.method} Not Allowed` })
+    },
+  }).use(ironSession(IRON_CONFIG_OPTIONS))
+}
