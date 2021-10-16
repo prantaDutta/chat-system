@@ -15,7 +15,7 @@ This is a [Next.js](https://nextjs.org/) chat app create by me, [Pranta Dutta](h
 - [TailwindCSS](https://tailwindcss.com/)
 - [SWR](https://swr.vercel.app) (not necessary, but I use it so that I don't have to use useEffect)
 - [Prisma](https://prisma.io)
-- [Postgresql](https://www.postgresql.org/)
+- [MySQL](https://www.mysql.com/)
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ This is a [Next.js](https://nextjs.org/) chat app create by me, [Pranta Dutta](h
 - Then open the file and Provide the following Data in the file
 
 ```
-    DATABASE_URL="postgresql://YOUR_DB_USER:YOUR_DB_PASSWORD@localhost:5432/DB_NAME?schema=public"
+    DATABASE_URL="mysql://YOUR_DB_USER:YOUR_DB_PASSWORD:@localhost:3306/DB_NAME"
     SECRET_COOKIE_PASSWORD="complex_password_at_least_32_characters_long"
 ```
 
@@ -47,6 +47,12 @@ Edit these values with your database credentials and also set a cookie password 
 ```
 
 Give it a name if it asks and press enter
+
+- You might need to generate prisma client (again not necessay, but better safe than sorry)
+
+```bash
+    yarn gen
+```
 
 - That's it. Now open the development server with the following command
 
